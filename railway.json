@@ -5,7 +5,6 @@
   },
   "deploy": {
     "startCommand": "node server/server.js",
-    "healthcheckPath": "/api/auth/needs-setup",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 3
   }
