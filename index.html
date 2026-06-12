@@ -2017,7 +2017,7 @@ function doSetup(){
   if(!first||!last||!email||!pw){ errEl.textContent='All fields are required.'; errEl.style.display='block'; return; }
   btn.disabled=true; btn.textContent='Creating account…';
   hashPassword(pw).then(function(hash){
-    var account={ id:uid(), firstName:first, lastName:last, email:email, password:hash, passwordHashed:true, role:'owner', active:true, createdAt:new Date().toISOString() };
+    var account={ id:uid(), firstName:first, lastName:last, email:email, password:hash, passwordHashed:true, role:'staff', active:true, createdAt:new Date().toISOString() };
     function finishSetup(token){
       btn.disabled=false; btn.textContent='Create Account & Sign In';
       if(token) sessionStorage.setItem('crm_token', token);
