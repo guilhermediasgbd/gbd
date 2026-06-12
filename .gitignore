@@ -1,0 +1,18 @@
+# Secrets
+.env
+server/.env
+
+# Dados reais do CRM
+server/crm-data.json
+server/crm-data.json.tmp
+
+# Dependencias
+node_modules/
+server/node_modules/
+
+# Claude Code (ferramentas locais)
+.claude/
+
+# Temporarios
+*.tmp
+*.log

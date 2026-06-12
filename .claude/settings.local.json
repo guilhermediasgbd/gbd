@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd.exe /c \"dir \\\\\"C:\\\\Users\\\\Field2College\\\\Downloads\\\\\" /b | findstr /i \\\\\"4M Floor Barry Twisted Classic Great Paystub CLASSIC TWISTEED RDGHB GREENPARK\\\\\"\")",
+      "Bash(cmd.exe /c \"dir \\\\\"C:\\\\Users\\\\Field2College\\\\Downloads\\\\\" /b\")",
+      "Bash(cmd.exe /c \"if exist \\\\\"C:\\\\Users\\\\Field2College\\\\Downloads\\\\4M-136.pdf\\\\\" \\(echo EXISTS\\) else \\(echo NOT FOUND\\)\")",
+      "Bash(cmd.exe /c \"dir \\\\\"C:\\\\Users\\\\Field2College\\\\Documents\\\\newcrm\\\\samples\\\\\" /b\")",
+      "Bash(npm install:*)",
+      "Bash(node --check server.js)",
+      "Bash(curl -s http://localhost:3000/api/status)",
+      "Bash(find C:/Users/Field2College/.claude/ -name *.md -o -name *.txt)",
+      "Bash(find C:/Users/Field2College/.claude/ -iname *site* -o -iname *architect*)",
+      "Bash(python3:*)",
+      "Bash(node -e \":*)",
+      "Bash(node migrate.js \"C:/Users/Field2College/Downloads/crm-backup-2026-05-18.json\")",
+      "Bash(node:*)",
+      "Bash(curl -s http://localhost:3000/api/data -H \"Authorization: Bearer invalid\")",
+      "Bash(gh api:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s https://raw.githubusercontent.com/vercel-labs/agent-skills/main/skills/vercel-optimize/SKILL.md)",
+      "Bash(netstat -ano)",
+      "Bash(findstr \":3000\")",
+      "Bash(tasklist *)",
+      "PowerShell(Get-Process *)",
+      "PowerShell(Get-NetTCPConnection *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git branch *)",
+      "Bash(git remote *)"
+    ]
+  }
+}
