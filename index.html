@@ -1283,6 +1283,10 @@ input[type=file]{display:none}
         <button type="button" class="btn btn-secondary btn-sm" style="margin-top:8px" onclick="addCrewRow(null)">+ Add Crew Member</button>
       </div>
       <input type="hidden" id="proj-filename">
+      <div class="form-group">
+        <label>Google Drive PDF Link</label>
+        <input type="url" id="proj-wo-pdf-url" class="form-control" placeholder="https://drive.google.com/file/d/...">
+      </div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
@@ -3186,6 +3190,7 @@ function openProjectModal(id){
       document.getElementById('proj-start').value=proj.dueDateStart||'';
       document.getElementById('proj-end').value=proj.dueDateEnd||'';
       projModalSetFile(proj.fileName||'');
+      document.getElementById('proj-wo-pdf-url').value=proj.woPdfUrl||'';
       projTypeSel=proj.type||'';
       projPrioritySel=proj.priority||'';
       projStatusSel=proj.status||'';
@@ -3202,6 +3207,7 @@ function openProjectModal(id){
     document.getElementById('proj-start').value='';
     document.getElementById('proj-end').value='';
     projModalSetFile('');
+    document.getElementById('proj-wo-pdf-url').value='';
   }
   updateCrewTotal();
   projModalApplyRole();
@@ -3414,6 +3420,7 @@ function saveProject(){
   var start=document.getElementById('proj-start').value;
   var end=document.getElementById('proj-end').value;
   var fileName=document.getElementById('proj-filename').value.trim();
+  var woPdfUrl=document.getElementById('proj-wo-pdf-url').value.trim();
   if(!name){ alert('Project name is required.'); return; }
   if(!start){ alert('Due date start is required.'); return; }
   var crew=getCrewData();
@@ -3428,6 +3435,7 @@ function saveProject(){
         projects[pi].dueDateEnd=end||start; projects[pi].type=projTypeSel;
         projects[pi].priority=projPrioritySel; projects[pi].status=projStatusSel;
         projects[pi].crew=crew; projects[pi].totalCrew=totalCrew; projects[pi].fileName=fileName;
+        projects[pi].woPdfUrl=woPdfUrl;
         break;
       }
     }
@@ -3437,7 +3445,7 @@ function saveProject(){
       priority:projPrioritySel, status:projStatusSel,
       completionStatus:'in_progress', needsRepair:false, crew:crew,
       totalCrew:totalCrew, fileName:fileName, staffApproved:false,
-      woPdfUrl:woImportMode?woCurrentDriveLink:'',
+      woPdfUrl:woPdfUrl||(woImportMode?woCurrentDriveLink:''),
       createdAt:new Date().toISOString(), createdBy:currentUser.email });
   }
   setProjects(projects);
